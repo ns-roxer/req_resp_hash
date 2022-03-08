@@ -31,7 +31,7 @@ func (app *responseHasherApp) CalcUrlHashes(urls []string) ([]string, error) {
 	}
 	var err error
 	processedUrls := make([]string, 0, len(urls))
-	urlsWithHash := make(chan string, app.parallelWorkersNum)
+	urlsWithHash := make(chan string)
 	errors := make(chan error)
 	wg := &sync.WaitGroup{}
 	wg.Add(1)
